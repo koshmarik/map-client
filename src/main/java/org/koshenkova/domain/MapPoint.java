@@ -25,6 +25,11 @@ public class MapPoint implements Serializable{
     private String name;
 
     @Column
+    private Double latitude;
+    @Column
+    private Double longitude;
+
+    @Column
     private String description;
 
 }
