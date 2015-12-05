@@ -23,13 +23,41 @@
 </head>
 <body>
     <div class="jumbotron">
-        <p class="text-uppercase">Задание</p>
+        <h1>Задание</h1>
         <p class="text-justify">Написать небольшой web-сервис, который будет по ручному запросу пользователя добавлять в
             базу точки и отмечать их на карте. Также у каждой точки должна быть собственная страничка
             (переход на страницу точки при клике на название точки на главной странице).</p>
     </div>
     <div class="container">
-        <div id="map"  style="width:900px;height:400px"></div>
+        <div class="col-sm-4">
+            <form class="form-horizontal" role="form" id="addForm">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="name">Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="name" placeholder="Enter point name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="latitude">Latitude:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="latitude" placeholder="Enter latitude">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="longitude">Longitude:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="longitude" placeholder="Enter longitude">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" class="btn btn-default">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-8"><div id="map"  style="width:800px;height:500px"></div></div>
+
     </div>
 </body>
 </html>
