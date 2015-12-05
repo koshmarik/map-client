@@ -25,4 +25,9 @@ public class MapPointServiceImpl implements MapPointService {
     public MapPoint findMapPointById(Long id) {
         return mapPointRepository.findOne(id);
     }
+
+    @Override
+    public MapPoint saveNewMapPoint(MapPoint mapPoint) {
+        return mapPointRepository.save(mapPoint);
+    }
 }

@@ -12,4 +12,6 @@ public interface MapPointService {
     Page<MapPoint> findAllMapPoints(Pageable pageable);
 
     MapPoint findMapPointById(Long id);
+
+    MapPoint saveNewMapPoint(MapPoint mapPoint);
 }

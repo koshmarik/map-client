@@ -2,18 +2,24 @@ package org.koshenkova;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.koshenkova.converter.MapPointConverter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
+import org.springframework.core.convert.ConversionService;
+import org.springframework.core.convert.converter.GenericConverter;
+import org.springframework.core.convert.support.GenericConversionService;
+import org.springframework.format.support.FormattingConversionService;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 @SpringBootApplication
-//@PropertySources(value = {@PropertySource("classpath:application.properties")})
-public class MapClientApplication {
+public class MapClientApplication {//extends WebMvcConfigurationSupport {
 
     private static Log logger = LogFactory.getLog(MapClientApplication.class);
 
@@ -33,6 +39,13 @@ public class MapClientApplication {
 
         };
     }
+
+    /*@Override
+    public FormattingConversionService mvcConversionService() {
+        FormattingConversionService formattingConversionService = super.mvcConversionService();
+        formattingConversionService.addConverter(new MapPointConverter());
+        return formattingConversionService;
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(MapClientApplication.class, args);
