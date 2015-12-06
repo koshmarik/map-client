@@ -6,6 +6,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
+ * Representation for map point
+ *
  * Created by asus-pc on 03.12.2015.
  */
 @Data

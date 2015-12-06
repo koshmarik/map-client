@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
+ * Converting pages
+ *
  * Created by asus-pc on 05.12.2015.
  */
 public class PageConverter <T,V> implements Page<V> {

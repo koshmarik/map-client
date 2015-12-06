@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
+ * Entity for point on map
+ *
  * Created by asus-pc on 29.11.2015.
  */
 @Entity
@@ -24,9 +26,9 @@ public class MapPoint implements Serializable{
     @Column(nullable = false)
     private String name;
 
-    @Column
+    @Column(nullable = false)
     private Double latitude;
-    @Column
+    @Column(nullable = false)
     private Double longitude;
 
     @Column

@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Расширения CRUD для манипуляций с MapPoint
+ * Extensions for CRUD manipulation MapPoint
  *
  * Created by asus-pc on 29.11.2015.
  */

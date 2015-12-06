@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
+ * Interface to describe manipulation of the points on the map
+ *
  * Created by asus-pc on 29.11.2015.
  */
 @Service

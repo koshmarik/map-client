@@ -19,7 +19,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 @SpringBootApplication
-public class MapClientApplication {//extends WebMvcConfigurationSupport {
+public class MapClientApplication {
 
     private static Log logger = LogFactory.getLog(MapClientApplication.class);
 
@@ -39,13 +39,6 @@ public class MapClientApplication {//extends WebMvcConfigurationSupport {
 
         };
     }
-
-    /*@Override
-    public FormattingConversionService mvcConversionService() {
-        FormattingConversionService formattingConversionService = super.mvcConversionService();
-        formattingConversionService.addConverter(new MapPointConverter());
-        return formattingConversionService;
-    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(MapClientApplication.class, args);
