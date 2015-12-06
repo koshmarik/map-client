@@ -1,0 +1,47 @@
+{
+  "size": 5,
+  "content": [
+    {
+      "id": 1,
+      "latitude": 55.763338,
+      "longitude": 37.565466,
+      "shortName": "Google",
+      "link": "http://google.com"
+    },
+    {
+      "id": 2,
+      "latitude": 55.744522,
+      "longitude": 37.616378,
+      "shortName": "Habrahabr",
+      "link": "http://habrahabr.ru"
+    },
+    {
+      "id": 3,
+      "latitude": 55.780898,
+      "longitude": 37.642889,
+      "shortName": "InfoQ",
+      "link": "http://www.infoq.com/"
+    },
+    {
+      "id": 4,
+      "latitude": 55.793559,
+      "longitude": 37.435983,
+      "shortName": "DZone",
+      "link": "https://dzone.com/"
+    },
+    {
+      "id": 5,
+      "latitude": 55.86677,
+      "longitude": 37.760113,
+      "shortName": "Mail.RU",
+      "link": "mail.ru"
+    }
+  ],
+  "number": 0,
+  "sort": null,
+  "numberOfElements": 5,
+  "first": true,
+  "last": false,
+  "totalPages": 2,
+  "totalElements": 7
+}
