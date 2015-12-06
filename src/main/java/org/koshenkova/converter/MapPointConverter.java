@@ -10,39 +10,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * Converting entity to view and view to entity
+ *
  * Created by asus-pc on 04.12.2015.
  */
 @Component
-public class MapPointConverter implements GenericConverter {
+public class MapPointConverter {
 
-    @Override
-    public Set<ConvertiblePair> getConvertibleTypes() {
-        Set<ConvertiblePair> convertiblePairs = new HashSet<>();
-        convertiblePairs.add(new ConvertiblePair(MapPoint.class, MapPointView.class));
-        convertiblePairs.add(new ConvertiblePair(MapPointView.class, MapPoint.class));
-        return convertiblePairs;
-    }
-
-    @Override
-    public Object convert(Object obj, TypeDescriptor sourceTypeDescriptor, TypeDescriptor targetTypeDescriptor) {
-        if(MapPoint.class.equals(sourceTypeDescriptor.getType()) && MapPointView.class.equals(targetTypeDescriptor.getType()))
-           return toMapPointView((MapPoint) obj);
-        if(MapPointView.class.equals(sourceTypeDescriptor.getType()) && MapPoint.class.equals(targetTypeDescriptor.getType()))
-            return toMapPoint((MapPointView) obj);
-        return null;
-    }
-
-    private MapPointView toMapPointView(MapPoint obj) {
+    public MapPointView toMapPointView(MapPoint obj) {
         MapPointView mapPointView = new MapPointView();
         mapPointView.setId(obj.getId());
         mapPointView.setShortName(obj.getName());
         mapPointView.setLatitude(obj.getLatitude());
         mapPointView.setLongitude(obj.getLongitude());
-        mapPointView.setLink(obj.getLink());
         return mapPointView;
     }
 
-    private MapPoint toMapPoint(MapPointView obj) {
+    public MapPoint toMapPoint(MapPointView obj) {
         MapPoint mapPoint = new MapPoint();
         mapPoint.setId(obj.getId());
         mapPoint.setName(obj.getShortName());
