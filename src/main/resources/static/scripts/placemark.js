@@ -55,9 +55,9 @@ function init() {
 
     //отправка данных
     $("#addForm").submit(function(event) {
-        var url = "/map_point";
-
         event.preventDefault();
+
+        var url = "/map_point";
 
         var $form = $( this ),
             name = $form.find( "input[name='name']" ).val(),
