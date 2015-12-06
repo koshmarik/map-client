@@ -30,4 +30,9 @@ public class MapPointServiceImpl implements MapPointService {
     public MapPoint saveNewMapPoint(MapPoint mapPoint) {
         return mapPointRepository.save(mapPoint);
     }
+
+    @Override
+    public String findMapPointLinkById(Long id) {
+        return mapPointRepository.findMapPointLinkById(id);
+    }
 }

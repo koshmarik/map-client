@@ -15,5 +15,6 @@ public class MapPointView implements Serializable {
     private Double latitude;
     private Double longitude;
     private String shortName;
+    private String link;
 
 }

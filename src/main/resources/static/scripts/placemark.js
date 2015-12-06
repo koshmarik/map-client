@@ -47,11 +47,32 @@ function init() {
                         type: 'Point',
                         coordinates: [content.latitude, content.longitude]
                     },
-                    name: content.shortName
+                    name: content.shortName,
+                    link: content.link
                 });
             });
             mapObjectManager.add(myObjects);
+
+            mapObjectManager.objects.events.add('click', function (e) {
+                var objectId = e.get('objectId');
+                //mapObjectManager.objects.balloon.open(objectId);
+                $.ajax({
+                    type: "GET",
+                    url: "/map_point/"+objectId+"/link",
+                    success: function (data) {
+                        window.location.replace(data);
+                    }
+                });
+            });
         });
+
+    // Создание метки
+    function createPlacemark(coords, name, link) {
+        var placemark = new ymaps.Placemark(coords, {
+            name: name
+        });
+        return placemark;
+    }
 
     //отправка данных
     $("#addForm").submit(function(event) {

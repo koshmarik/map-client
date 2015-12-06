@@ -30,6 +30,6 @@ public class MapPoint implements Serializable{
     private Double longitude;
 
     @Column
-    private String description;
+    private String link;
 
 }

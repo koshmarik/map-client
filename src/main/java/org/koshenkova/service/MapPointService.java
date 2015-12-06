@@ -14,4 +14,6 @@ public interface MapPointService {
     MapPoint findMapPointById(Long id);
 
     MapPoint saveNewMapPoint(MapPoint mapPoint);
+
+    String findMapPointLinkById(Long id);
 }
