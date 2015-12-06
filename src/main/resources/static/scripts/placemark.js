@@ -55,9 +55,33 @@ function init() {
 
     //отправка данных
     $("#addForm").submit(function(event) {
-        alert( "Handler for .submit() called." );
+        var url = "/map_point";
+
         event.preventDefault();
+
+        var $form = $( this ),
+            name = $form.find( "input[name='name']" ).val(),
+            latitude = $form.find( "input[name='latitude']" ).val(),
+            longitude = $form.find( "input[name='longitude']" ).val();
+
+        var posting = $.post( url, { shortName: name, latitude: latitude, longitude: longitude } );
+
+        posting.done(function( data ) {
+            mapObjectManager.add({
+                type: 'Feature',
+                id: data.id,
+                geometry: {
+                    type: 'Point',
+                    coordinates: [data.latitude, data.longitude]
+                },
+                name: data.shortName
+            });
+        });
     });
 
+
+
 }
+
+
 

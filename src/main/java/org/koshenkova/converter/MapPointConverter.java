@@ -29,8 +29,10 @@ public class MapPointConverter implements GenericConverter {
     public Object convert(Object obj, TypeDescriptor sourceTypeDescriptor, TypeDescriptor targetTypeDescriptor) {
         if(MapPoint.class.equals(sourceTypeDescriptor.getType()) && MapPointView.class.equals(targetTypeDescriptor.getType()))
            return toMapPointView((MapPoint) obj);
-        if(MapPoint.class.equals(sourceTypeDescriptor.getType()) && MapPointView.class.equals(targetTypeDescriptor.getType()))
+        if(MapPoint.class.equals(sourceTypeDescriptor.getType()) && MapPointDetails.class.equals(targetTypeDescriptor.getType()))
             return toMapPointDetails((MapPoint) obj);
+        if(MapPointView.class.equals(sourceTypeDescriptor.getType()) && MapPoint.class.equals(targetTypeDescriptor.getType()))
+            return toMapPoint((MapPointView) obj);
         return null;
     }
 
