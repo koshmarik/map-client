@@ -19,24 +19,17 @@ function init() {
     });
 
     //загрузка данных
-    var mapPointApi = "http://localhost:8080/map_point"; //"mock/data.json";
-    $.getJSON(mapPointApi, {
+    $.getJSON("/map_point", //"mock/data.json";,
+        {
             pageNumber: "0",
             size: "5"
         })
         .done(function (data) {
             var myObjects = [];
             $.each(data.content, function (i, content) {
-                myObjects.push({
-                    type: 'Feature',
-                    id: content.id,
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [content.latitude, content.longitude]
-                    },
-                    name: content.shortName,
-                    link: content.link
-                });
+                myObjects.push(
+                    createPlacemark(content.id, content.latitude, content.longitude, content.shortName)
+                );
             });
             mapObjectManager.add(myObjects);
 
@@ -53,11 +46,16 @@ function init() {
         });
 
     // Создание метки
-    function createPlacemark(coords, name) {
-        var placemark = new ymaps.Placemark(coords, {
-            name: name
-        });
-        return placemark;
+    function createPlacemark(id, latitude, longitude, name) {
+       return {
+           type: 'Feature',
+           id: id,
+           geometry: {
+               type: 'Point',
+               coordinates: [latitude, longitude]
+           },
+           name: name
+       };
     }
 
     //отправка данных
@@ -75,15 +73,9 @@ function init() {
             });
 
         posting.done(function (data) {
-            mapObjectManager.add({
-                type: 'Feature',
-                id: data.id,
-                geometry: {
-                    type: 'Point',
-                    coordinates: [data.latitude, data.longitude]
-                },
-                name: data.shortName
-            });
+            mapObjectManager.add(
+                createPlacemark(data.id, data.latitude, data.longitude, data.shortName)
+            );
         });
     });
 
