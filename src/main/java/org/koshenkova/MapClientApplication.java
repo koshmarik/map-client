@@ -18,6 +18,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+/**
+ * Config for Spring Boot application
+ */
 @SpringBootApplication
 public class MapClientApplication {
 

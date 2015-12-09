@@ -28,7 +28,7 @@ public class MapPointController {
     @Autowired
     private MapPointConverter mapPointConverter;
 
-
+    /** find map pint by id */
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     @ResponseBody
     public MapPointView findPointById(@PathVariable("id") Long id) {
@@ -36,12 +36,14 @@ public class MapPointController {
         return mapPointConverter.toMapPointView(mapPoint);
     }
 
+    /** find link to the page for map point with id */
     @RequestMapping(value = "/{id}/link",method = RequestMethod.GET)
     @ResponseBody
     public String findLinkMapPointById(@PathVariable("id") Long id) {
         return mapPointService.findMapPointLinkById(id);
     }
 
+    /** find map point by page with pageNumber and size*/
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Page<MapPointView> findAllPoints(@RequestParam(value = "pageNumber", defaultValue = "0") int pageNumber,
@@ -51,6 +53,7 @@ public class MapPointController {
         return PageConverter.convert(mapPoints).using(mapPoint -> mapPointConverter.toMapPointView(mapPoint));
     }
 
+    /** add new map point */
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public MapPointView addPoint(MapPointView mapPointView) {
